@@ -13,6 +13,7 @@ if (!Office.context.requirements.isSetSupported('ExcelApi', '1.7')) {
 }
     document.getElementById("create-table").onclick = createTable;
     document.getElementById("add-row").onclick = openDialog;
+    document.getElementById("filter-selectCell").onclick = filterTableSelectCell;
   }
 });
 
@@ -120,3 +121,28 @@ function processMessage(arg) {
 var dialog = null;
 
 // End : Add new Row
+
+
+//Start: Select and Filter the Table
+async function filterTableSelectCell() {
+  try {
+    await Excel.run(async (context) => {
+      let currentWorksheet = context.workbook.worksheets.getActiveWorksheet();
+      let range = context.workbook.getSelectedRange();
+      range.load(["text"]);
+      await context.sync();
+
+      var filterVal = range.text;
+      var expensesTable = currentWorksheet.tables.getItem('ExpensesTable');
+      var categoryFilter = expensesTable.columns.getItem('Category').filter;
+      categoryFilter.applyValuesFilter([`${filterVal}`]);
+      await context.sync();
+    });
+  } catch (error) {
+    console.error(error);
+    if(error instanceof OfficeExtension.Error){
+      console.log("Debug info: " + JSON.stringify(error.debugInfo));
+    }
+  }
+}
+//End: Select and Filter the Table
