@@ -12,6 +12,7 @@ if (!Office.context.requirements.isSetSupported('ExcelApi', '1.7')) {
   console.log('Sorry. The tutorial add-in uses Excel.js APIs that are not available in your version of Office.');
 }
     document.getElementById("create-table").onclick = createTable;
+    document.getElementById("add-row").onclick = openDialog;
   }
 });
 
@@ -55,3 +56,67 @@ export async function createTable() {
     }
   }
 }
+
+// Start: Add new Row
+// addRow function takes 4 arguments to add a new row to the existing table.
+// we'll use a  dialog box to get these arguments as user inserted data. 
+
+async function addRow(date, merchant, category, amount) {
+  try {
+    await Excel.run(async (context) => {
+      let sheet = context.workbook.worksheets.getActiveWorksheet();
+      let expensesTable = sheet.tables.getItem("ExpensesTable");
+  
+      expensesTable.rows.add(
+          null, // index, Adds rows to the end of the table.
+          [
+              [date, merchant,category, amount]
+          ], 
+          true, // alwaysInsert, Specifies that the new rows be inserted into the table.
+      );
+  
+      sheet.getUsedRange().format.autofitColumns();
+      sheet.getUsedRange().format.autofitRows();
+ 
+      await context.sync();
+    });
+  } catch (error) {
+    console.error(error);
+    if(error instanceof OfficeExtension.Error){
+      console.log("Debug info: " + JSON.stringify(error.debugInfo));
+    }
+  }
+}
+
+// openDialog() function will open a dialog box to take 4 user input data 
+//and then the data gets stored into 4 diffrent variales 
+// finally it'll call the addRow() function  
+function openDialog() {
+  // TODO1: Call the Office Common API that opens a dialog
+  Office.context.ui.displayDialogAsync(
+    'https://localhost:3000/popup.html',
+    {height: 45, width: 55},
+  
+    // TODO2: Add callback parameter.
+    function (result) {
+      dialog = result.value;
+      dialog.addEventHandler(Microsoft.Office.WebExtension.EventType.DialogMessageReceived, processMessage);
+    }
+  );
+}
+
+var date, merchant, category, price; 
+function processMessage(arg) {
+  const messageFromDialog = JSON.parse(arg.message);
+  date= messageFromDialog.a;
+  merchant = messageFromDialog.b;
+  category = messageFromDialog.c;
+  price = messageFromDialog.d;
+  addRow(date, merchant, category,price);
+
+  dialog.close();
+ 
+}
+var dialog = null;
+
+// End : Add new Row

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog for My Office Add-in</title>
+    <!-- For more information on Office UI Fabric, visit https://developer.microsoft.com/fabric. -->
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.1/css/fabric.min.css"/>
+    <!-- Bootstrap 5 library -CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <script type="text/javascript" src="popup.js"></script>
+</head>
+<body style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <p class="ms-font-xl" style="font-weight: 600;"> Add a New Row to the Expense Table</p>
+     
+
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Date: </span>
+        <input type="date" class="form-control" id="date" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Merchant </span>
+        <input type="text" class="form-control" id="merchant" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Category </span>
+        <input type="text" class="form-control" id="category" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Price</span>
+        <input type="text" class="form-control" id="price" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      </div>
+      
+      <button id="ok-button" class="btn btn-sm btn-success">OK</button>
+      </div>
+    </div>
+  </div>
+
+  </body>
+</html>
