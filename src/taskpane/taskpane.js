@@ -15,3 +15,11 @@ if (!Office.context.requirements.isSetSupported('ExcelApi', '1.7')) {
   }
 });
 
+
+// js for splash screen
+const splash = document.querySelector(".splash");
+document.addEventListener("DOMContentLoaded", (e)=>{
+  setTimeout(()=>{
+    splash.classList.add("display-none");
+  },2000);
+})
