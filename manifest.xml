@@ -86,8 +86,8 @@
               </Group>
 <!-- End: Worksheet Group  -->
 
-<!-- Date Group Starts here -->
-               <Group id="DateGroup">
+<!-- Start: Hide Group -->
+               <Group id="HideGroup">
                  <Label resid="HideGroupLabel" />
                 <Icon>
                   <bt:Image size="16" resid="calender.16"/>
@@ -142,8 +142,33 @@
                   </Items>
                 </Control>
               </Group>
-<!-- Date Group Ends here -->
+<!-- End: Hide Group -->
+<!-- Start: Date Group  -->
+               <Group id="DateGroup">
+                 <Label resid="DateGroupLabel" />
+                <Icon>
+                  <bt:Image size="16" resid="protect.16"/>
+                  <bt:Image size="32" resid="protect.32"/>
+                  <bt:Image size="80" resid="protect.80"/>
+                </Icon>
 
+                <Control xsi:type="Button" id="dateToggle">
+                <Label resid="DateButtonLabel" />
+            <Supertip>
+              <Title resid="DateButtonLabel" />
+              <Description resid="DateButtonTooltip" />
+            </Supertip>
+                <Icon>
+                  <bt:Image size="16" resid="protect.16"/>
+                  <bt:Image size="32" resid="protect.32"/>
+                  <bt:Image size="80" resid="protect.80"/>
+                </Icon>
+                 <Action xsi:type="ExecuteFunction">
+                  <FunctionName>dateFormat</FunctionName>
+                </Action>
+            </Control>
+              </Group>
+<!-- End: Date Group  -->
 
 
              <Label resid="Tab1.TabLabel" />
@@ -183,10 +208,12 @@
        <bt:ShortStrings>
         <bt:String id="GetStarted.Title" DefaultValue="Get started with your Exceldemy add-in!"/>
         <bt:String id="TableGroupLabel" DefaultValue="Table"/>
+         <bt:String id="DateGroupLabel" DefaultValue="Date"/>
         <bt:String id="CommandsGroup.Label" DefaultValue="Commands Group"/>
         <bt:String id="TaskpaneButton.Label" DefaultValue="Play with Table"/>
         <bt:String id="WorksheetGroupLabel" DefaultValue="Worksheet"/>
         <bt:String id="WorksheetButtonLabel" DefaultValue="Protect/Unprotect" />
+        <bt:String id="DateButtonLabel" DefaultValue="Date Format" />
         <bt:String id="Contoso.Dropdown.Label" DefaultValue="Cell Options" />
         <bt:String id="Contoso.Item1.Label" DefaultValue="Color Low->High" />
         <bt:String id="Contoso.Item2.Label" DefaultValue="Hide Empty Cells" />
@@ -197,6 +224,7 @@
         <bt:String id="GetStarted.Description" DefaultValue="Your Exceldemy add-in loaded succesfully. Go to the Exceldemy tab and explore diffrent functionalities."/>
         <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Create, Add New Row, Filter Table"/>
         <bt:String id="WorksheetButtonTooltip" DefaultValue="Click to protect or unprotect the current worksheet." />
+        <bt:String id="DateButtonTooltip" DefaultValue="Click to choose and change Date format." />
         <bt:String id="Contoso.Dropdown.Tooltip" DefaultValue="Click to Show Options on this Menu" />
         <bt:String id="Contoso.Item1.Tooltip" DefaultValue="Color Values Conditinally. " />
         <bt:String id="Contoso.Item2.Tooltip" DefaultValue="Delect and hide empty cells." />

@@ -23,6 +23,7 @@ module.exports = async (env, options) => {
       taskpane3: "./src/taskpane/taskpane3.js",
       commands: "./src/commands/commands.js",
       popup: "./src/dialogs/popup.js",
+      popup2: "./src/dialogs/popup2.js",
     },
     output: {
       devtoolModuleFilenameTemplate: "webpack:///[resource-path]?[loaders]",
@@ -98,6 +99,11 @@ module.exports = async (env, options) => {
         template: "./src/dialogs/popup.html",
         chunks: ["polyfill", "popup"]
           }),
+          new HtmlWebpackPlugin({
+            filename: "popup2.html",
+            template: "./src/dialogs/popup2.html",
+            chunks: ["polyfill", "popup2"]
+              }),
       new HtmlWebpackPlugin({
         filename: "commands.html",
         template: "./src/commands/commands.html",

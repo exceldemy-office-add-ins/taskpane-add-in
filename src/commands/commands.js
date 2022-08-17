@@ -75,6 +75,58 @@ export async function conditonalColoring(args) {
   args.completed();
 }
 
+// Start: Change Date Format Add-in Command
+
+async function dateFormat(args) {
+  try {
+    await Excel.run(async (context) => {
+    addRowDialogue();
+    });
+  } catch (error) {
+    console.error(error);
+    if(error instanceof OfficeExtension.Error){
+      console.log("Debug info: " + JSON.stringify(error.debugInfo));
+    }
+  }
+  args.completed();
+}
+
+function addRowDialogue() {
+  // TODO1: Call the Office Common API that opens a dialog
+  Office.context.ui.displayDialogAsync(
+    'https://localhost:3000/popup2.html',
+    {height: 45, width: 55},
+  
+    // TODO2: Add callback parameter.
+    function (result) {
+      dialog = result.value;
+      dialog.addEventHandler(Microsoft.Office.WebExtension.EventType.DialogMessageReceived, processMessage);
+    }
+  );
+}
+
+function processMessage(arg) {
+  
+    try {
+       Excel.run(async (context) => {
+        let rng = context.workbook.getSelectedRange();
+        
+        rng.numberFormat = arg.message;
+        rng.format.autofitColumns();
+        rng.format.autofitRows();
+        await context.sync();
+      });
+    } catch (error) {
+      console.error(error);
+      if(error instanceof OfficeExtension.Error){
+        console.log("Debug info: " + JSON.stringify(error.debugInfo));
+      }
+
+  }
+  dialog.close();
+}
+var dialog = null;
+// End: Change Date Format Add-in Command
 
 function getGlobal() {
   return typeof self !== "undefined"
@@ -92,3 +144,5 @@ const g = getGlobal();
 g.action = action;
 g.toggleProtection = toggleProtection;
 g.conditonalColoring = conditonalColoring;
+g.addRowDialogue = addRowDialogue;
+g.dateFormat =dateFormat;
