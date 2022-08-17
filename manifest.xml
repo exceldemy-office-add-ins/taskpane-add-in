@@ -30,13 +30,14 @@
           </GetStarted>
           <FunctionFile resid="Commands.Url"/>
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
-            <OfficeTab id="TabHome">
-              <Group id="CommandsGroup">
-                <Label resid="CommandsGroup.Label"/>
+           
+            <CustomTab id="Tab1">
+               <Group id="TableGroup">
+                 <Label resid="TableGroupLabel" />
                 <Icon>
-                  <bt:Image size="16" resid="Icon.16x16"/>
-                  <bt:Image size="32" resid="Icon.32x32"/>
-                  <bt:Image size="80" resid="Icon.80x80"/>
+                  <bt:Image size="16" resid="excel-table.16"/>
+                  <bt:Image size="32" resid="excel-table.32"/>
+                  <bt:Image size="80" resid="excel-table.80"/>
                 </Icon>
                 <Control xsi:type="Button" id="TaskpaneButton">
                   <Label resid="TaskpaneButton.Label"/>
@@ -45,9 +46,9 @@
                     <Description resid="TaskpaneButton.Tooltip"/>
                   </Supertip>
                   <Icon>
-                    <bt:Image size="16" resid="Icon.16x16"/>
-                    <bt:Image size="32" resid="Icon.32x32"/>
-                    <bt:Image size="80" resid="Icon.80x80"/>
+                    <bt:Image size="16" resid="excel-table.16"/>
+                    <bt:Image size="32" resid="excel-table.32"/>
+                    <bt:Image size="80" resid="excel-table.80"/>
                   </Icon>
                   <Action xsi:type="ShowTaskpane">
                     <TaskpaneId>ButtonId1</TaskpaneId>
@@ -55,7 +56,9 @@
                   </Action>
                 </Control>
               </Group>
-            </OfficeTab>
+
+             <Label resid="Tab1.TabLabel" />
+            </CustomTab>
           </ExtensionPoint>
         </DesktopFormFactor>
       </Host>
@@ -65,6 +68,10 @@
         <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
         <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
         <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+
+        <bt:Image id="excel-table.16" DefaultValue="https://localhost:3000/assets/excel-table.png"/>
+        <bt:Image id="excel-table.32" DefaultValue="https://localhost:3000/assets/excel-table.png"/>
+        <bt:Image id="excel-table.80" DefaultValue="https://localhost:3000/assets/excel-table.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
@@ -72,13 +79,15 @@
         <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="GetStarted.Title" DefaultValue="Get started with your sample add-in!"/>
+        <bt:String id="GetStarted.Title" DefaultValue="Get started with your Exceldemy add-in!"/>
+        <bt:String id="TableGroupLabel" DefaultValue="Table"/>
         <bt:String id="CommandsGroup.Label" DefaultValue="Commands Group"/>
-        <bt:String id="TaskpaneButton.Label" DefaultValue="Show Taskpane"/>
+        <bt:String id="TaskpaneButton.Label" DefaultValue="Play with Table"/>
+        <bt:String id="Tab1.TabLabel" DefaultValue="Exceldemy" />
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Show Taskpane' button to get started."/>
-        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane"/>
+        <bt:String id="GetStarted.Description" DefaultValue="Your Exceldemy add-in loaded succesfully. Go to the Exceldemy tab and explore diffrent functionalities."/>
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Create, Add New Row, Filter Table"/>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>
