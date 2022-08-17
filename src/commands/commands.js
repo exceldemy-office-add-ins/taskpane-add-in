@@ -49,6 +49,30 @@ export async function toggleProtection(args) {
       console.log("Debug info: " + JSON.stringify(error.debugInfo));
     }
   }
+  args.completed();
+}
+
+
+export async function conditonalColoring(args) {
+  try {
+    await Excel.run(async (context) => {
+      const range = context.workbook.getSelectedRange();
+      const conditionalFormat = range.conditionalFormats.add(Excel.ConditionalFormatType.colorScale);
+      const criteria = {
+        minimum: { formula: null, type: Excel.ConditionalFormatColorCriterionType.lowestValue, color: "blue" },
+        midpoint: { formula: "50", type: Excel.ConditionalFormatColorCriterionType.percent, color: "yellow" },
+        maximum: { formula: null, type: Excel.ConditionalFormatColorCriterionType.highestValue, color: "red" }
+      };
+      conditionalFormat.colorScale.criteria = criteria;
+      await context.sync();
+    });
+  } catch (error) {
+    console.error(error);
+    if(error instanceof OfficeExtension.Error){
+      console.log("Debug info: " + JSON.stringify(error.debugInfo));
+    }
+  }
+  args.completed();
 }
 
 
@@ -67,3 +91,4 @@ const g = getGlobal();
 // The add-in command functions need to be available in global scope
 g.action = action;
 g.toggleProtection = toggleProtection;
+g.conditonalColoring = conditonalColoring;

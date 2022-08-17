@@ -1,0 +1,88 @@
+/* 
+ * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
+ * See LICENSE in the project root for license information.
+ */
+
+ html,
+ body {
+     width: 100%;
+     height: 100%;
+     margin: 0;
+     padding: 0;
+     font-family: 'Ubuntu', sans-serif;;
+     /* background-color: azure; */
+ }
+ 
+ ul,ol {
+     margin: 0px;
+     padding: 0px;
+ }
+ li,p {
+    font-size: 13px;
+    font-weight: 600;
+    color: black;
+    text-align: left;
+ }
+
+ h5{
+    color: darkblue;
+ }
+
+ 
+.card-title{
+    font-size: 17px;
+}
+.card{
+    background-color:azure;
+    padding: 5px;
+}
+
+/* css for splash screen */
+.splash{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    z-index: 200;
+    color: black;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.splash.display-none{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    z-index: -10;
+    color: black;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .5s;
+}
+
+@keyframes fadeIn{
+    to{
+        opacity: 1;
+    }
+}
+
+.fade-in{
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+
+
+
+
+

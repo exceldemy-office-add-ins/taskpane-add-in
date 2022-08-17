@@ -20,6 +20,7 @@ module.exports = async (env, options) => {
       polyfill: ["core-js/stable", "regenerator-runtime/runtime"],
       taskpane: "./src/taskpane/taskpane.js",
       taskpane2: "./src/taskpane/taskpane2.js",
+      taskpane3: "./src/taskpane/taskpane3.js",
       commands: "./src/commands/commands.js",
       popup: "./src/dialogs/popup.js",
     },
@@ -66,6 +67,11 @@ module.exports = async (env, options) => {
         filename: "taskpane2.html",
         template: "./src/taskpane/taskpane2.html",
         chunks: ["polyfill", "taskpane2"],
+      }),
+      new HtmlWebpackPlugin({
+        filename: "taskpane3.html",
+        template: "./src/taskpane/taskpane3.html",
+        chunks: ["polyfill", "taskpane3"],
       }),
       new CopyWebpackPlugin({
         patterns: [
