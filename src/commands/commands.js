@@ -28,6 +28,30 @@ function action(event) {
   event.completed();
 }
 
+export async function toggleProtection(args) {
+  try {
+    await Excel.run(async (context) => {
+      var sheet = context.workbook.worksheets.getActiveWorksheet();
+      sheet.load('protection/protected');
+      await context.sync();
+  
+        if (sheet.protection.protected) {
+          sheet.protection.unprotect();
+        } else {
+          sheet.protection.protect();
+        }
+        await context.sync();
+
+    });
+  } catch (error) {
+    console.error(error);
+    if(error instanceof OfficeExtension.Error){
+      console.log("Debug info: " + JSON.stringify(error.debugInfo));
+    }
+  }
+}
+
+
 function getGlobal() {
   return typeof self !== "undefined"
     ? self
@@ -42,3 +66,4 @@ const g = getGlobal();
 
 // The add-in command functions need to be available in global scope
 g.action = action;
+g.toggleProtection = toggleProtection;

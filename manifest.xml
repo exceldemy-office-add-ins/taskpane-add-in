@@ -32,6 +32,7 @@
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
            
             <CustomTab id="Tab1">
+<!-- Start: Table Group -->
                <Group id="TableGroup">
                  <Label resid="TableGroupLabel" />
                 <Icon>
@@ -56,6 +57,33 @@
                   </Action>
                 </Control>
               </Group>
+<!-- End: Table Group -->
+        
+<!-- Start: Worksheet Group  -->
+               <Group id="WorksheetGroup">
+                 <Label resid="WorksheetGroupLabel" />
+                <Icon>
+                  <bt:Image size="16" resid="protect.16"/>
+                  <bt:Image size="32" resid="protect.32"/>
+                  <bt:Image size="80" resid="protect.80"/>
+                </Icon>
+                <Control xsi:type="Button" id="ConditionalColoring">
+                <Label resid="WorksheetButtonLabel" />
+            <Supertip>
+              <Title resid="WorksheetButtonLabel" />
+              <Description resid="WorksheetButtonTooltip" />
+            </Supertip>
+                <Icon>
+                  <bt:Image size="16" resid="protect.16"/>
+                  <bt:Image size="32" resid="protect.32"/>
+                  <bt:Image size="80" resid="protect.80"/>
+                </Icon>
+                 <Action xsi:type="ExecuteFunction">
+                  <FunctionName>toggleProtection</FunctionName>
+                </Action>
+            </Control>
+              </Group>
+<!-- End: Worksheet Group  -->
 
              <Label resid="Tab1.TabLabel" />
             </CustomTab>
@@ -72,6 +100,10 @@
         <bt:Image id="excel-table.16" DefaultValue="https://localhost:3000/assets/excel-table.png"/>
         <bt:Image id="excel-table.32" DefaultValue="https://localhost:3000/assets/excel-table.png"/>
         <bt:Image id="excel-table.80" DefaultValue="https://localhost:3000/assets/excel-table.png"/>
+
+        <bt:Image id="protect.16" DefaultValue="https://localhost:3000/assets/protect.png"/>
+        <bt:Image id="protect.32" DefaultValue="https://localhost:3000/assets/protect.png"/>
+        <bt:Image id="protect.80" DefaultValue="https://localhost:3000/assets/protect.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
@@ -83,11 +115,14 @@
         <bt:String id="TableGroupLabel" DefaultValue="Table"/>
         <bt:String id="CommandsGroup.Label" DefaultValue="Commands Group"/>
         <bt:String id="TaskpaneButton.Label" DefaultValue="Play with Table"/>
+        <bt:String id="WorksheetGroupLabel" DefaultValue="Worksheet"/>
+        <bt:String id="WorksheetButtonLabel" DefaultValue="Protect/Unprotect" />
         <bt:String id="Tab1.TabLabel" DefaultValue="Exceldemy" />
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="GetStarted.Description" DefaultValue="Your Exceldemy add-in loaded succesfully. Go to the Exceldemy tab and explore diffrent functionalities."/>
         <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Create, Add New Row, Filter Table"/>
+         <bt:String id="WorksheetButtonTooltip" DefaultValue="Click to protect or unprotect the current worksheet." />
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>
