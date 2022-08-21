@@ -18,9 +18,9 @@ module.exports = async (env, options) => {
     devtool: "source-map",
     entry: {
       polyfill: ["core-js/stable", "regenerator-runtime/runtime"],
-      taskpane: "./src/taskpane/taskpane.js",
-      taskpane2: "./src/taskpane/taskpane2.js",
-      taskpane3: "./src/taskpane/taskpane3.js",
+      taskpane: "./src/taskpane/taskpane1/taskpane.js",
+      taskpane2: "./src/taskpane/taskpane2/taskpane2.js",
+      taskpane3: "./src/taskpane/taskpane3/taskpane3.js",
       commands: "./src/commands/commands.js",
       popup: "./src/dialogs/popup.js",
       popup2: "./src/dialogs/popup2.js",
@@ -61,17 +61,17 @@ module.exports = async (env, options) => {
     plugins: [
       new HtmlWebpackPlugin({
         filename: "taskpane.html",
-        template: "./src/taskpane/taskpane.html",
+        template: "./src/taskpane/taskpane1/taskpane.html",
         chunks: ["polyfill", "taskpane"],
       }),
       new HtmlWebpackPlugin({
         filename: "taskpane2.html",
-        template: "./src/taskpane/taskpane2.html",
+        template: "./src/taskpane/taskpane2/taskpane2.html",
         chunks: ["polyfill", "taskpane2"],
       }),
       new HtmlWebpackPlugin({
         filename: "taskpane3.html",
-        template: "./src/taskpane/taskpane3.html",
+        template: "./src/taskpane/taskpane3/taskpane3.html",
         chunks: ["polyfill", "taskpane3"],
       }),
       new CopyWebpackPlugin({
