@@ -22,6 +22,12 @@ Office.onReady((info) => {
   import {detectBlankCell} from './js_components/detectBlankCell'
   import { emptyCell } from './js_components/emptyCell';
   import { entireRow } from './js_components/entireRow';
+
+
+import { create_table } from './html_components/create_table';
+import { detect_blank_cell } from './html_components/detect_blank_cell';
+import { empty_cell } from './html_components/empty_cell';
+import { entire_row } from './html_components/enitre_row';
   
   
   

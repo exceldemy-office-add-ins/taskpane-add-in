@@ -34,69 +34,16 @@
     </div>
 
     <div class="container py-5">
-        <div class="row flex justify-content-center mb-3">
-          <div class="col-md-12 col-sm-12 col-12">
-                <h2 class="text-center text-black" style="font-weight:600" >Hide Blank Rows </h2>
-                <div class="card text-center">
-                    <div class="card-body">
-                      <h5 class="card-title"style="font-weight:600">Let's Create a Table with sample data.</h5>
-                      <button id="create-table" class="btn btn-sm btn-success">Create Now!</button>
-                    </div>
-                  </div>
-            </div>
-        </div>
-
-        <div class="row flex justify-content-center mb-3">
-          <div class="col-md-12 col-sm-12 col-12">
-             
-              <div class="card text-center">
-                  <div class="card-body">
-                     <h5 class="card-title"style="font-weight:600">Detect Blank Cell(s) </h5> 
-                    <ol>
-                      <li>Select a range of cells from your dataset.</li>
-                      <li>Then click the following button to highlight the black cells in the selected range.
-                      </li>
-                      <p> <span style="color:red ;">**Note:</span> It'll also highlight rows that are completely blank.</p>
-                    </ol>
-                    <button id="detectBlankCell-button" class="btn btn-sm btn-warning">Click to highlight</button>
-                  </div>
-                </div>
-          </div>
-      </div>
-
-        <div class="row flex justify-content-center mb-3">
-          <div class="col-md-12 col-sm-12 col-12">
-             
-              <div class="card text-center">
-                  <div class="card-body">
-                     <h5 class="card-title"style="font-weight:600">Hide Rows with Blank Cell(s)</h5> 
-                    <ol>
-                      <li>Select a range of cells from your dataset.</li>
-                      <li>Now, click the following button to hide the rows with blank cell(s).
-                      </li>
-                      <p> <span style="color:red ;">**Note:</span> It'll also hide rows that are completely blank.</p>
-                    </ol>
-                    <button id="emptyCell-button" class="btn btn-sm btn-danger">Click to Hide</button>
-                  </div>
-                </div>
-          </div>
-      </div>
-  
-      <div class="row flex justify-content-center mb-3">
-        <div class="col-md-12 col-sm-12 col-12">
-            <div class="card text-center">
-                <div class="card-body">
-                  <h5 class="card-title"style="font-weight:600">Hide Entirely Blank Rows </h5>
-                  <ol>
-                    <li>Select a range of cells from your dataset.</li>
-                    <li>Now, click the following button to hide the rows that are entirely blank.
-                    </li>
-                  </ol>
-                  <button id="entireRow-button" class="btn btn-sm btn-success">Hide Blank Rows</button>
-                </div>
-              </div>
-        </div>
+      <div id="create_table">  </div>
+      <div id="detect_blank_cell"></div>
+      <div id="empty_cell"></div>
+      <div id="entire_row"></div>
     </div>
+       
+
+
+  
+
 
        
 </body>
