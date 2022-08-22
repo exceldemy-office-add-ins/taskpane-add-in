@@ -21,6 +21,7 @@ module.exports = async (env, options) => {
       taskpane: "./src/taskpane/taskpane1/taskpane.js",
       taskpane2: "./src/taskpane/taskpane2/taskpane2.js",
       taskpane3: "./src/taskpane/taskpane3/taskpane3.js",
+      taskpane4: "./src/taskpane/taskpane4/taskpane4.js",
       commands: "./src/commands/commands.js",
       popup: "./src/dialogs/popup.js",
       popup2: "./src/dialogs/popup2.js",
@@ -73,6 +74,11 @@ module.exports = async (env, options) => {
         filename: "taskpane3.html",
         template: "./src/taskpane/taskpane3/taskpane3.html",
         chunks: ["polyfill", "taskpane3"],
+      }),
+      new HtmlWebpackPlugin({
+        filename: "taskpane4.html",
+        template: "./src/taskpane/taskpane4/taskpane4.html",
+        chunks: ["polyfill", "taskpane4"],
       }),
       new CopyWebpackPlugin({
         patterns: [
